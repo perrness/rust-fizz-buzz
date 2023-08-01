@@ -1,9 +1,16 @@
 fn main() {
-    for i in 0..100 {
-        if i % 2 == 0 {
-            println!("{} Fizz", i);
+    let fizz = "Fizz";
+    let buzz = "Buzz";
+
+    for i in 1..100 {
+        if i % 3 == 0 && i % 5 == 0 {
+            print!("{}{} ", fizz, buzz)
+        } else if i % 3 == 0 {
+            print!("{} ", fizz);
+        } else if i % 5 == 0 {
+            print!("{} ", buzz);
         } else {
-            println!("{} Buzz", i);
+            print!("{} ", i);
         }
     }
 }
