@@ -12,14 +12,11 @@ fn fizz_buzz(i: u32) -> Vec<String> {
     let buzz = "Buzz";
 
     for i in 1..i {
-        if i % 3 == 0 && i % 5 == 0 {
-            fizzbuzz.push(format!("{}{} ", fizz, buzz));
-        } else if i % 3 == 0 {
-            fizzbuzz.push(format!("{} ", fizz));
-        } else if i % 5 == 0 {
-            fizzbuzz.push(format!("{} ", buzz));
-        } else {
-            fizzbuzz.push(format!("{} ", i));
+        match (i % 3, i % 5) {
+            (0, 0) => fizzbuzz.push(format!("{}{} ", fizz, buzz)),
+            (0, _) => fizzbuzz.push(format!("{} ", fizz)),
+            (_, 0) => fizzbuzz.push(format!("{} ", buzz)),
+            _ => fizzbuzz.push(format!("{} ", i)),
         }
     }
 
